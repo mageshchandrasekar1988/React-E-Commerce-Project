@@ -1,0 +1,25 @@
+:root {
+  --mainBlue: #2a2a72;
+  --lightBlue: #009ff0;
+  --mainWhite: #f3f3f3;
+  --mainDartk: #232528;
+  --mainYellow: #ffa400;
+}
+
+body {
+  font-family: "Oswald", sans-serif !important;
+  background: val(--mainWhite) !important;
+  color: var(--mainDartk) !important;
+}
+.text-title {
+  font-family: "Permanent Marker", cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+.text-blue {
+  color: var(--mainBlue);
+}
+.test {
+  color: var(--mainBlue);
+  cursor: pointer;
+}
