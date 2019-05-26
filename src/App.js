@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar";
 import Cart from "./Components/Cart";
 import Details from "./Components/Details";
 import ProductList from "./Components/ProductList";
+import Modal from "./Components/Modal";
 //import Product from "./Components/Product";
 import Default from "./Components/Default";
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <Modal />
       </Fragment>
     );
   }
