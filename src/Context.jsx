@@ -8,9 +8,12 @@ class Context extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
-    cart: [],
+    cart: storeProducts,
     modalOpen: false,
-    modalProduct: detailProduct
+    modalProduct: detailProduct,
+    cartSubTotal: 0,
+    cartTax: 0,
+    cartTotal: 0
   };
   componentDidMount() {
     this.setProducts();
@@ -60,6 +63,18 @@ class Context extends Component {
       return { modalOpen: false };
     });
   };
+  increment = id => {
+    console.log("HELLOW FROM INCREMENT");
+  };
+  decrement = id => {
+    console.log("HELLOW FROM Decrenent");
+  };
+  removeItem = id => {
+    console.log("HELLOW FROM Remove Ites");
+  };
+  clearCart = () => {
+    console.log("HELLOW FROM clearCart");
+  };
   render() {
     console.log(this.state);
     return (
@@ -69,7 +84,11 @@ class Context extends Component {
           handelDetails: this.handelDetails,
           addToCart: this.addToCart,
           openModal: this.openModal,
-          closeModal: this.closeModal
+          closeModal: this.closeModal,
+          increment: this.increment,
+          decrement: this.decrement,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart
         }}
       >
         {this.props.children}
