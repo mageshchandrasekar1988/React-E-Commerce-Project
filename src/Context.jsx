@@ -8,7 +8,7 @@ class Context extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
-    cart: storeProducts,
+    cart: [],
     modalOpen: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
@@ -47,9 +47,14 @@ class Context extends Component {
     const price = product.price;
     product.total = price;
 
-    this.setState(() => {
-      return { products: tempProduct, cart: [...this.state.cart, product] };
-    });
+    this.setState(
+      () => {
+        return { products: tempProduct, cart: [...this.state.cart, product] };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
 
   openModal = id => {
@@ -73,7 +78,32 @@ class Context extends Component {
     console.log("HELLOW FROM Remove Ites");
   };
   clearCart = () => {
-    console.log("HELLOW FROM clearCart");
+    this.setState(
+      () => {
+        return { cart: [] };
+      },
+      () => {
+        this.setProducts();
+        this.addTotals();
+      }
+    );
+  };
+  addTotals = () => {
+    let subTotal = 0;
+
+    this.state.cart.map(item => {
+      subTotal += item.total;
+    });
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    this.setState(() => {
+      return {
+        cartSubTotal: subTotal,
+        cartTax: tax,
+        cartTotal: total
+      };
+    });
   };
   render() {
     console.log(this.state);
