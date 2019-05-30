@@ -4,7 +4,7 @@ class CartItem extends Component {
   render() {
     const { item, value } = this.props;
     const { id, img, title, total, count, price } = item;
-    const { increment, decrement, removeItem, clearCart } = value;
+    const { increment, decrement, removeItem } = value;
     return (
       <div className="row my-2 text-capitalize text-center">
         <div className="col-10 mx-auto col-lg-2">
