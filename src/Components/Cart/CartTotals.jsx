@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-
+import PayPalButton from "./PayPal";
 class CartTotals extends Component {
   state = {};
   render() {
-    const { value } = this.props;
+    const { value, history } = this.props;
     const { cartSubTotal, cartTax, cartTotal, clearCart } = value;
     return (
       <Fragment>
@@ -32,6 +32,11 @@ class CartTotals extends Component {
                 <span className="text-title">total </span>
                 <strong>$ {cartTotal}</strong>
               </h5>
+              <PayPalButton
+                cartTotal={cartTotal}
+                clearCart={clearCart}
+                history={history}
+              />
             </div>
           </div>
         </div>
