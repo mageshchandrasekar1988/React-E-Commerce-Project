@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../Context";
@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 class Product extends Component {
   state = {};
   render() {
-    const { id, title, img, price, company, inCart } = this.props.products;
+    const { id, title, img, price, inCart } = this.props.products;
     return (
       <ProductWraper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
